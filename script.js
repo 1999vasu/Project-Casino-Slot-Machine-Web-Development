@@ -18,7 +18,14 @@ function getRandomValue(){
 
 // console.log(document.getElementById('value1'))
 
-let animationid;
+let animationid=setInterval(()=>{
+    value1.innerText = getRandomValue()
+    value2.innerText = getRandomValue()
+    value3.innerText = getRandomValue()
+    
+},1000)
+
+
 function upddateAnimation(newSpeed){
     if(animationid) clearInterval(animationid)
 
@@ -35,6 +42,14 @@ inpSpeed.onchange = function(ev){
     // document.documentElement => this is ':root' of css
     document.documentElement.style.setProperty('--speed',ev.target.value)
     upddateAnimation(ev.target.value)
+    value1.classList.remove('animation')
+    value2.classList.remove('animation')
+    value3.classList.remove('animation')
+    value1.classList.add('animation')
+    value2.classList.add('animation')
+    value3.classList.add('animation')
+
+    myoutput.textContent = 'Game is Runnning'
 }
 
 function stopclick(){
@@ -46,6 +61,10 @@ function stopclick(){
     }else{
         text = ' OOPS Try again'
     }
+
+    value1.classList.remove('animation')
+    value2.classList.remove('animation')
+    value3.classList.remove('animation')
     myoutput.textContent = text
 
 
@@ -53,11 +72,13 @@ function stopclick(){
 
 function startclick(){
     upddateAnimation(inpSpeed.value)
+    value1.classList.add('animation')
+    value2.classList.add('animation')
+    value3.classList.add('animation')
     
 
     myoutput.textContent = 'Game is Runnning'
 }
 
 
-// console.log(myoutput.target.value)
 

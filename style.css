@@ -25,11 +25,10 @@
     overflow: hidden;
 }
 
-.slot .value{
+.animation{
     animation-name: slotspin;
     animation-iteration-count:  infinite;
     animation-duration: calc(1s/var(--speed)) ;
-
 }
 
 @keyframes slotspin{
